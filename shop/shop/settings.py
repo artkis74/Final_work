@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -131,8 +131,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_HOST_USER = 'netology-pdiplom@mail.ru'
-EMAIL_HOST_PASSWORD = 'i~8W4rdRPFlo'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER'),
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '465'
 EMAIL_USE_SSL = True
 SERVER_EMAIL = EMAIL_HOST_USER

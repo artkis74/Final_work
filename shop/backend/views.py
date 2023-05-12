@@ -45,8 +45,9 @@ class RegisterAccount(APIView):
                 return JsonResponse({'Status': False, 'Errors': {'password': error_array}})
             else:
                 # проверяем данные для уникальности имени пользователя
-                request.data._mutable = True
-                request.data.update({})
+                # request.data._mutable = True
+                # request.data.update({}) # Добавляем пустой словарь, чтобы создать копию request.data,
+                # для того чтобы когда будем сохранять экзампляр класса UserSerializer не сохранить пароль в незашифрованном виде
                 user_serializer = UserSerializer(data=request.data)
                 if user_serializer.is_valid():
                     # сохраняем пользователя
